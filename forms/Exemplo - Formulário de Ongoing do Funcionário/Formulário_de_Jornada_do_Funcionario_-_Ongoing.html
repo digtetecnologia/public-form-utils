@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+
+<link rel="stylesheet" type="text/css"
+	href="/style-guide/css/fluig-style-guide.min.css">
+<script src="/resources/js/jquery/jquery.js"></script>
+<script src="/resources/js/jquery/jquery-ui.min.js"></script>
+<script src="/resources/js/mustache/mustache-min.js"></script>
+<script src="/style-guide/js/fluig-style-guide.min.js"></script>
+
+<!-- CUSTOM -->
+<link href="/style-guide/css/fluig-style-guide-filter.min.css"
+	rel="stylesheet" type="text/css">
+<link href="/style-guide/css/fluig-style-guide-ratingstars.min.css"
+	rel="stylesheet" type="text/css">
+<script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+<script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+
+</head>
+<body class="fluig-style-guide">
+
+	<form
+		class="totvs-form grid vertical create-form-components ui-sortable t0"
+		name="createFormComponents">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="zoomfield"
+					data-show-properties="" data-field-name="codJornada">
+					<div class="form-input">
+						<div class="form-group">
+							<label for="zoom">Jornada</label>
+							<div class="input-group">
+								<input type="zoom" class="form-control" name="codJornada"
+									dataset="dpf_cadastro_jornada" datasetvalue="descricao"
+									zoomvalue="codJornada"
+									data-zoom="{'displayKey':'descricao','datasetId':'dpf_cadastro_jornada','fields':[{'field':'codJornada','label':'Cod Jornada','standard':true},{'field':'descricao','label':'descricao'}]}">
+								<div class="input-group-addon zoom-preview">
+									<span class="fluigicon fluigicon-zoom-in"></span>
+								</div>
+								<input type="hidden" name="hidden_codJornada"
+									id="hidden_codJornada"> <input type="hidden"
+									name="hidden_prazoEtapa" id="hidden_prazoEtapa"> <input
+									type="hidden" name="hidden_codigoFormularioPublico"
+									id="hidden_codigoFormularioPublico">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="nome">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Etapa Atual</label> <input type="text"
+								class="form-control" name="codEtapa" id="codEtapa" value=""
+								placeholder=""> <input type="hidden"
+								name="hidden_codEtapa" id="hidden_codEtapa">
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="nome">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Link de Consulta das Etapas</label> <input type="text"
+								class="form-control" name="linkView" id="linkView" value=""
+								placeholder=""> <input type="hidden"
+								name="hidden_linkView" id="hidden_linkView"> <input
+								type="button" id="btnAcessarlinkView" value="Acessar"
+								onClick="javascript: window.open(document.getElementById('hidden_linkView').value);" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="nome">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Link da Etapa</label> <input type="text"
+								class="form-control" name="linkInsert" id="linkInsert" value=""
+								placeholder=""> <input type="hidden"
+								name="hidden_linkInsert" id="hidden_linkInsert"> <input
+								type="button" id="btnAcessarlinkInsert" value="Acessar"
+								onClick="javascript: window.open(document.getElementById('hidden_linkInsert').value);" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="zoomfield"
+					data-show-properties="" data-field-name="usuario">
+					<div class="form-input">
+						<div class="form-group">
+							<label for="zoom">Usuário fluig do funcionário</label>
+							<div class="input-group">
+								<input type="zoom" class="form-control" name="usuario"
+									data-size="medium" style="width: 50%;" dataset="colleague"
+									datasetvalue="colleagueName" zoomvalue="colleagueId"
+									data-zoom="{'displayKey':'colleagueName','datasetId':'colleague','fields':[{'field':'colleagueId','label':'Matrícula'},{'field':'colleagueName','label':'Usuário', 'standard':true},{'field':'login','label':'Login'},{'field':'mail','label':'E-mail'}]}">
+								<div class="input-group-addon zoom-preview">
+									<span class="fluigicon fluigicon-zoom-in"></span>
+								</div>
+								<input type="hidden" name="hidden_usuario" id="hidden_usuario">
+								<input type="hidden" name="hidden_matricula"
+									id="hidden_matricula"> <input type="hidden"
+									name="hidden_login" id="hidden_login">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="nome">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Nome do funcionário</label><input type="text"
+								class="form-control" name="nome" id="nome" value=""
+								placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="sobrenome">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Sobrenome</label><input type="text" class="form-control"
+								id="sobrenome" name="sobrenome" value="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="email">
+					<div class="form-input">
+						<div class="form-group">
+							<label>E-mail</label><input type="text" class="form-control"
+								id="email" name="email" value="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="celular">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Celular</label><input type="text" class="form-control"
+								name="celular" id="celular" value="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<br> <br>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="nomeMentor">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Nome do mentor</label><input type="text"
+								class="form-control" name="nomeMentor" value="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="sobrenomeMentor">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Sobrenome</label><input type="text" class="form-control"
+								name="sobrenomeMentor" value="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="emailMentor">
+					<div class="form-input">
+						<div class="form-group">
+							<label>E-mail</label><input type="text" class="form-control"
+								name="emailMentor" value="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-field col-md-6 col-sm-6" data-type="textbox"
+					data-show-properties="" data-field-name="celularMentor">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Celular</label><input type="text" class="form-control"
+								name="celularMentor" value="" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</form>
+
+
+	<script type="text/javascript">
+
+		var script = $('<script>', {
+			'src': '/webdesk/vcXMLRPC.js'
+		});
+		$('body').append(script);
+	
+		var keyDown = false, ctrl = 17, vKey = 86, Vkey = 118;
+
+		$(document).keydown(function(e) {
+			if (e.keyCode == ctrl)
+				keyDown = true;
+		}).keyup(function(e) {
+			if (e.keyCode == ctrl)
+				keyDown = false;
+		});
+
+		$('[data-only-numbers]').on('keypress', function(e) {
+			if (!e) {
+				var e = window.event;
+			}
+
+			if (e.keyCode > 0 && e.which == 0) {
+				return true;
+			}
+
+			if (e.keyCode) {
+				code = e.keyCode;
+			} else if (e.which) {
+				code = e.which;
+			}
+
+			if (code == 46) {
+				return true;
+			}
+
+			var character = String.fromCharCode(code);
+			if (character == '\b' || character == ' ' || character == '\t') {
+				return true;
+			}
+			if (keyDown && (code == vKey || code == Vkey)) {
+				return (character);
+			} else {
+				return (/[0-9]$/.test(character));
+			}
+		}).on('focusout', function(e) {
+			var $this = $(this);
+			if ($this.val() == "") {
+				return true;
+			}
+			$this.val($this.val().replace(/[^0-9\.]/g, ''));
+		}).on('paste', function(e) {
+			var $this = $(this);
+			setTimeout(function() {
+				$this.val($this.val().replace(/[^0-9\.]/g, ''));
+			}, 5);
+		});
+
+		$('.create-form-components')
+				.on(
+						'keyup',
+						'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]',
+						function() {
+							validationFieldsForm($(this), $(this).parents(
+									'.form-field').data('type'));
+						});
+
+		$('.create-form-components')
+				.on(
+						'change',
+						'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]',
+						function() {
+							validationFieldsForm($(this), $(this).parents(
+									'.form-field').data('type'));
+						});
+
+		function validationFieldsForm(field, type) {
+			if (type === "checkbox" || type === "radio") {
+				if (!field.is(':checked')) {
+					field.parents('.form-field').addClass('required');
+				} else {
+					field.parents('.form-field').removeClass('required');
+				}
+			} else {
+				if (!field.val().trim()) {
+					field.parents('.form-field').addClass('required');
+				} else {
+					field.parents('.form-field').removeClass('required');
+				}
+			}
+		}
+		
+		var $zoomPreview = $(".zoom-preview");
+		if ($zoomPreview.length) {
+			$zoomPreview.parent().removeClass("input-group");
+			$zoomPreview.remove();
+		}
+
+		var ratings = $(".rating");
+		if (ratings.length > 0)
+			ratingStars(ratings);
+		function ratingStars(stars) {
+			$.each(stars, function(i, obj) {
+				var field = $(this).closest(".form-group")
+						.find(".rating-value");
+				var tgt = $(obj);
+				tgt.html("");
+				var rating = FLUIGC.stars(tgt, {
+					value : field.val()
+				});
+				rating.on("click", function(o) {
+					field.val($(this).index() + 1);
+				});
+			});
+		}
+
+		$.each($("[data-date]"), function(i, o) {
+			var id = $(o).attr("id");
+			FLUIGC.calendar("#" + id);
+		});
+
+		$(document).ready(function() {
+			$.each($("[data-date]"), function(i, o) {
+				var id = $(o).attr("id");
+				if ($("#" + id).attr("readonly")) {
+					$("#" + id).data('DateTimePicker').disable();
+				}
+			});
+			
+		    if (window.top !== window.self)
+	        {	
+		    	
+	          var queryStringKeyValue = window.parent.location.search.replace('?', '').split('&');
+	          var qsJsonObject = {};
+	          if (queryStringKeyValue != '') {
+	                for (i = 0; i < queryStringKeyValue.length; i++) {
+	                    qsJsonObject[queryStringKeyValue[i].split('=')[0]] = queryStringKeyValue[i].split('=')[1];
+	                }
+	          }
+	          
+	          var codStatus = qsJsonObject.codStatus;
+	          
+	          codStatus = codStatus == null ? "": decodeURIComponent(codStatus);
+	          
+	          $("#hidden_codEtapa").val(codStatus);
+	                 
+	        }
+	        else{
+	           
+	           var codStatus = window.getURLParameter("codStatus");	
+	           
+	           codStatus = codStatus == null ? "":decodeURIComponent(codStatus);
+	           
+	           $("#hidden_codEtapa").val(codStatus);
+	           
+	        }
+			
+		});
+		
+		function setSelectedZoomItem(selectedItem) {
+
+			if (selectedItem.inputName == "codJornada") {
+				$('#hidden_codJornada').val(selectedItem.codJornada);
+
+				var cCodJornada = DatasetFactory.createConstraint("codJornada", selectedItem.codJornada, selectedItem.codJornada, ConstraintType.MUST);
+				var dsJornada = DatasetFactory.getDataset("dpf_cadastro_jornada", null, [cCodJornada], null);
+
+				if (dsJornada && dsJornada.values && dsJornada.values.length > 0) {
+
+					$('#hidden_codigoFormularioPublico').val(dsJornada.values[0]["codigoFormularioPublico"]);
+					
+					var documentIdJornada = dsJornada.values[0]["metadata#id"];
+					var documentVersionJornada = dsJornada.values[0]["metadata#version"];
+
+					var c1 = DatasetFactory.createConstraint("tablename", "tbJornadaStatus", "tbJornadaStatus", ConstraintType.MUST);
+					var c2 = DatasetFactory.createConstraint("metadata#id", documentIdJornada, documentIdJornada, ConstraintType.MUST);
+					var c3 = DatasetFactory.createConstraint("metadata#version", documentVersionJornada, documentVersionJornada, ConstraintType.MUST);
+					var c4 = DatasetFactory.createConstraint("metadata#active", "true", "true", ConstraintType.MUST);
+
+					var constrStatus = [c1, c2, c3, c4];
+
+					var dsStatusJornada = DatasetFactory.getDataset("dpf_cadastro_jornada", null, constrStatus, ['jornadaOrdem']);
+
+					if (dsStatusJornada && dsStatusJornada.values && dsStatusJornada.values.length > 0) {
+
+						var prazo = dsStatusJornada.values[0].atividadeDestinoPrazo;
+						
+						if (prazo.length >= 3) {
+							prazo = prazo + ":00";
+						}
+						else if (prazo.length == 2) {
+							prazo = "0" + prazo + ":00";
+						}
+						else {
+							prazo = "00" + prazo + ":00";
+						}
+
+						$('#hidden_prazoEtapa').val(prazo);
+		
+					}
+				}
+			}
+
+			if (selectedItem.inputName == "usuario") {
+				$('#hidden_usuario').val(selectedItem.colleagueName);
+				$('#hidden_matricula').val(selectedItem.colleagueId);
+				$('#hidden_login').val(selectedItem.login);
+				$('#hidden_email').val(selectedItem.mail);
+				
+				var nomeCompleto = selectedItem.colleagueName;
+				
+				var tmp = nomeCompleto.split(" ");
+				var nome = tmp[0];
+				var sobrenome = nomeCompleto.replace(nome,"");
+				sobrenome = sobrenome.trim();
+
+				$('#nome').val(tmp[0]);
+				$('#sobrenome').val(sobrenome);
+				$('#email').val(selectedItem.mail);
+			}
+		}
+
+		function removedZoomItem(removedItem) {
+			
+			if (removedItem.inputId == "codigoFormularioPublico") {
+				$('#hidden_codigoFormularioPublico').val("");
+			} 
+
+			if (removedItem.inputId == "codJornada") {
+				$('#hidden_codJornada').val("");
+				$('#hidden_prazoEtapa').val("");
+			} 
+
+			if (removedItem.inputName == "usuario") {
+				$('#hidden_usuario').val("");
+				$('#hidden_matricula').val("");
+				$('#hidden_login').val("");
+				$('#hidden_email').val("");
+			}
+			
+		}
+		
+	</script>
+</body>
+</html>
